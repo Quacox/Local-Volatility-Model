@@ -1,0 +1,20 @@
+Brent's method is another root-finding algorithm that combines the robustness of the bisection method with the speed of methods such as secant method, bisection method and inverse quadratic interpolation. It does not require the derivative of the function and generally converges faster than bisection.
+
+Brent's method iteratively narrows down the interval containing the root by:
+- <ins>Bisection method</ins> : Given an interval $[a, b]$ where $ f(a) $ and $ f(b) $ have opposite signs (i.e., $ f(a) \cdot f(b) < 0 $), the iterative formula for the bisection method is: $ \boxed{c = \frac{a + b}{2} }$
+    - If $ f(c) = 0 $, then $ c $ is the root.
+    - If $ f(a) \cdot f(c) < 0 $, then the root lies in $[a, c]$.
+    - If $ f(b) \cdot f(c) < 0 $, then the root lies in $[c, b]$.
+
+- <ins>Secant method</ins> : Given two initial guesses $ x_0 $ and $ x_1 $, the iterative formula for the secant method is: $\boxed{ x_{n+1} = x_n - \frac{f(x_n) \cdot (x_n - x_{n-1})}{f(x_n) - f(x_{n-1})} }$
+    - $ x_n $ is the current estimate of the root,
+    - $ f(x_n) $ and $ f(x_{n-1}) $ are the values of the function at $ x_n $ and $ x_{n-1} $, respectively.
+
+- <ins>Inverse quadratic interpolation</ins> : Given three points $ x_0, x_1, x_2 $ where $ f(x_0), f(x_1), f(x_2) \neq 0 $, the formula for the new approximation $ x_3 $ is:
+
+     $\boxed{ x_3 = x_0 - \frac{2 \left[ (x_0 - x_1)(f(x_0) - f(x_2)) - (x_0 - x_2)(f(x_0) - f(x_1)) \right]}{(x_0 - x_1)^2 (f(x_0) - f(x_2)) - (x_0 - x_2)^2 (f(x_0) - f(x_1))}}$
+
+    - $ x_3 $ is the new approximation of the root,
+    - $ x_0, x_1, x_2 $ are three successive points used for interpolation,
+    - $ f(x_0), f(x_1), f(x_2) $ are the values of the function evaluated at $ x_0, x_1, x_2 $, respectively.
+
